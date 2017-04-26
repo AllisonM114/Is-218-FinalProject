@@ -19,8 +19,9 @@ if ($action == 'list_products') {
     if ($code == NULL || $code == FALSE) {
         $error = "Missing or incorrect product code.";
 	include('../errors/error.php');
-    
-    } else {
+    }
+
+} else {
         delete_product($code);
 	header("Location: .");
 

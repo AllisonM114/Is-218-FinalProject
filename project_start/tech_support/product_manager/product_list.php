@@ -4,7 +4,7 @@
     <h1>Product List</h1>
 
     <div id="main">
-        <!-- display a table of products --!>
+        <!-- display a table of products -->
 	<table>
 	    <tr>
 	        <th>Code</th>
@@ -21,9 +21,9 @@
 		<td><?php echo $product['releaseDate']; ?></td>
 		<td><form action="." method="post">
 		    <input type="hidden" name="action"
-		        <value="delete_product">
+		        value="delete_product">
 		    <input type="hidden" name="product_id"
-		        <value="<?php echo $product['productCode']; ?>">
+		        value="<?php echo $product['productCode']; ?>">
 		    <input type="submit" value="Delete">
 		</form></td>
 	    </tr>
