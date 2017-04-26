@@ -22,7 +22,7 @@
 		<td><form action="." method="post">
 		    <input type="hidden" name="action"
 		        value="delete_product">
-		    <input type="hidden" name="product_id"
+		    <input type="hidden" name="productCode"
 		        value="<?php echo $product['productCode']; ?>">
 		    <input type="submit" value="Delete">
 		</form></td>
