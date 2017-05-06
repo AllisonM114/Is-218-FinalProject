@@ -1,4 +1,4 @@
-<?php include '../../view/header.php'; ?>
+<?php include '../view/header.php'; ?>
 <main>
     
     <h1>Add Technician</h1>
@@ -35,4 +35,4 @@
     </p>
 
 </main>
-<?php include '../../view/footer.php'; ?>
+<?php include '../view/footer.php'; ?>
