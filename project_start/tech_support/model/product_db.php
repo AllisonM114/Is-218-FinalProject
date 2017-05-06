@@ -1,33 +1,33 @@
 <?php
-function get_product ($product_code) {
+function get_products() {
     global $db;
     $query = 'SELECT * FROM products
-              WHERE productCODE = :product_code';
+              WHERE productID = :product_id';
     $statement = $db->prepare($query);
-    $statement->bindValue(":product_code", $product_code);
+    $statement->bindValue(":product_id", $product_id);
     $statement->execute();
     $product = $statement->fetch();
     $statement->closeCursor();
     return $products;
 }
 
-function delete_product ($product_code) {
+function delete_product() {
     global $db;
-    $query = 'DELETE FROM products
-              WHERE productCode = :productCode';
+    $query = 'DELETE FROM products-id
+              WHERE productID = :product_id';
     $statement = $db->prepare($query);
-    $statement->bindValue(':productCode', $productCode);
+    $statement->bindValue(':productID', $product_id);
     $statement->execute();
     $statement->closeCursor();
 }
 
-function add_product ($productCode, $name, $version, $date) {
+function add_product ($code, $name, $version, $date) {
     global $db;
     $query = 'INSERT INTO products
                   (productCode, name, version, date)
 	      VALUES
-	          (:productCode, :name, :version, :date)';
-    $statement->bindValue(':productCode', $productCode);
+	          (:code, :name, :version, :date)';
+    $statement->bindValue(':code', $code);
     $statement->bindValue(':name', $name);
     $statement->bindValue(':version', $version);
     $statement->bindValue(':date', $date);

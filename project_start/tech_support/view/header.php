@@ -5,7 +5,7 @@
 <head>
     <title>SportsPro Technical Support</title>
     <link rel="stylesheet" type="text/css"
-          href="/project_start/tech_support/main.css">
+          href="https://web.njit.edu/~adm52/tech_support/main.css">
 </head>
 
 <!-- the body section -->
@@ -15,7 +15,8 @@
     <p>Sports management software for the sports enthusiast</p>
     <nav>
         <ul>
-            <li><a href="/project_start/tech_support/">Home</a></li>
+            <li><a
+	    href="https://web.njit.edu/~adm52/Is-218-FinalProject/project_start/tech_support/">Home</a></li>
         </ul>
     </nav>
 </header>
