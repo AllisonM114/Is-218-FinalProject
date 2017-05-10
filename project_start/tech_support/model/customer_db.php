@@ -46,7 +46,7 @@ $postal_code, $country_code, $phone, $email, $password) {
     $statement->closeCursor();
 }
 
-function update_customer($first_name, $last_name, $address, $city, $state,
+function add_customer($first_name, $last_name, $address, $city, $state,
 $postal_code, $country_code, $phone, $email, $password) {
     global $db
     $query = 'INSERT INTO customers
