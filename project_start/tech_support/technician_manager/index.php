@@ -10,12 +10,14 @@ if ($action === NULL) {
     }
 }
 
-if ($action == 'list_technicians') {
+//switch statements for technician controller
+switch ($action) {
+    case 'list_technicians':
     $products = get_technicians();
     include('technician_list.php');
-}
+    break;
 
-else if ($action == 'delete_technicians') {
+    case 'delete_technicians':
     $technician_id = filter_input(INPUT_POST, 'technician_id');
     if ($technician_id == NULL || $technician_id == FALSE) {
         $error = "Missing or incorrect product code.";
@@ -23,13 +25,13 @@ else if ($action == 'delete_technicians') {
     } else {
         delete_technician($technician_id);
 	header("Location: ."); }
-}
+    break;
 
-else if ($action == 'show_add_form') {
+    case 'show_add_form':
     include('technician_add.php');
-}
+    break;
 
-else if ($action == 'add_technician') {
+    case 'add_technician':
     $first_name = filter_input(INPUT_POST, 'first_name');
     $last_name = filter_input(INPUT_POST, 'last_name');
     $phone = filter_input(INPUT_POST, 'phone');
@@ -46,7 +48,7 @@ else {
     add_technician($first_name, $last_name, $email, $phone, $password);
     header("Location: .");
 }
-
+    break;
 }
 
 ?>

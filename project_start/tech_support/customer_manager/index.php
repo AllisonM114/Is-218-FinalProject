@@ -9,12 +9,15 @@ if ($action === NULL) {
         $action = 'list_customerss';
     }
 }
+//switch statements for customer controller
+switch($action) {
 
-if ($action == 'list_customers') {
+    case 'list_customers':
     $products = get_customers();
     include('customer_list.php');
+    break;
 
-} else if ($action == 'search_customer') {
+    case 'search_customer':
     $last_name = filter_input(INPUT_POST, 'last_name');
     if ($last_name == NULL || $product_id == FALSE) {
         $error = "Missing or incorrect last name.";
@@ -22,11 +25,13 @@ if ($action == 'list_customers') {
     } else {
         $customers = search_customer($last_name);
 	include('customer_list.php'); }
+    break;
 
-} else if ($action == 'show_add_form') {
+    case 'show_add_form':
     include('customer_update_add.php');
+    break;
 
-} else if ($action == 'add_customer') {
+    case 'add_customer':
    $first_name = filter_input(INPUT_POST, 'first_name');
    $last_name = filter_input(INPUT_POST, 'last_name');
    $address = filter_input(INPUT_POST, 'address');
@@ -50,8 +55,10 @@ if ($action == 'list_customers') {
        add_customer($first_name, $last_name, $address, $city, $state, 
        $postal_code, $country_code, $phone, $email, $password);
        header("Location: .");
+    }
+    break;
 
-} else if ($action == 'update_customer') {
+    case 'update_customer':
    $first_name = filter_input(INPUT_POST, 'first_name');
    $last_name = filter_input(INPUT_POST, 'last_name');
    $address = filter_input(INPUT_POST, 'address');
@@ -75,6 +82,7 @@ if ($action == 'list_customers') {
        $postal_code, $country_code, $phone, $email, $password);
        header("Location: .");
    }
+   break;
 }
 
 ?

@@ -9,12 +9,14 @@ if ($action === NULL) {
         $action = 'list_products';
     }
 }
-
-if ($action == 'list_products') {
+//switch statements for products controller
+switch($actions) {
+    case 'list_products':
     $products = get_products();
     include('product_list.php');
+    break;
 
-} else if ($action == 'delete_product') {
+    case 'delete_product':
     $product_id = filter_input(INPUT_POST, 'product_code');
     if ($product_id == NULL || $product_id == FALSE) {
         $error = "Missing or incorrect product code.";
@@ -22,11 +24,13 @@ if ($action == 'list_products') {
     } else {
         delete_product($code);
 	header("Location: ."); }
+    break;
 
-} else if ($action == 'show_add_form') {
+    case 'show_add_form':
     include('product_add.php');
+    break;
 
-} else if ($action == 'add_product') {
+    case 'add_product':
     $code = filter_input(INPUT_POST, 'code');
     $name = filter_input(INPUT_POST, 'name');
     $version = filter_input(INPUT_POST, 'version');
@@ -39,6 +43,7 @@ if ($action == 'list_products') {
         add_product($code, $name, $version, $date);
 	header("Location: .");
     }
+    break;
 }
 
 ?>

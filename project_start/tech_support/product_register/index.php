@@ -16,11 +16,14 @@ if ($action === NULL) {
 	    $action = 'show_login';
 	}
     }
-if ($action == 'show_login') {
+
+//switch statements for product register controller
+switch ($action) {
+    case 'show_login':
     include ('customer_login.php');
     break;
 
-} else if ($action == 'show_register') {
+    case 'show_register':
     if (!isset($_SESSION['customer'])) {
     $email = filter_input(INPUT_POST, 'email');
     $password = filter_input(INPUT_POST, 'password');
@@ -29,13 +32,13 @@ if ($action == 'show_login') {
 	$_SESSION['user'] = $customer;
     }
 }
-}
+
     $customer = $_SESSION['user'];
     $products = get_products();
     include('product_register.php')
     break;
 
-} else if ($action == 'register_product') {
+    case 'register_product':
     $customer = $_SESSION['user'];
     $code = filter_input(INPUT_POST, 'code');
     add_registration($customer, $code);

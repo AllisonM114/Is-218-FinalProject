@@ -11,18 +11,22 @@ if ($action === NULL) {
         $action = 'get_customer_form';
     }
 }
+//switch statements for incident controller
+switch ($action) {
 
-if ($action == 'get_customer_form') {
+    case 'get_customer_form':
     include 'customer_search.php';
     break;
 
-else if ($action == 'search_customer_form') {
+    case 'search_customer_form':
     $email = filter_input(INPUT_POST, 'email');
     if ($email == NULL || $email == FALSE) {
         $error = "Missing or incorrect email.";
 	include('../errors/error.php');
+    }
+    break;
 
-else ($action == 'create_incident') {
+    case 'create_incident':
     $customer = filter_input(INPUT_POST, 'customer');
     $product = filter_input(INPUT_POST, 'product');
     $title = filter_input(INPUT_POST, 'title');
