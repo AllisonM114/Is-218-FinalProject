@@ -1,4 +1,4 @@
-<?php include '../view/header.php'; ?>
+<?php include '../view/header.php';?>
 <main>
 
 <h1>Technician List</h1>
@@ -16,8 +16,7 @@
 
 	<?php foreach ($technicians as $technician) : ?>
 	<tr>
-	    <td><?php echo $technician['firstName'] . ' ' .
-	    $technician['lastName']; ?></td>
+	    <td><?php echo $technician->getFullName(); ?></td>
 	    <td><?php echo $technician['email']; ?></td>
 	    <td><?php echo $technician['phone']; ?></td>
 	    <td><?php echo $technician['password']; ?></td>
