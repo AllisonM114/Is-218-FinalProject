@@ -2,6 +2,20 @@
 require('../model/database.php');
 require('../model/product_db.php');
 
+$validate = new Validate();
+$fields = $validate->getFields();
+$fields->addField('first_name');
+$fields->addField('last_name');
+$fields->addField('address');
+$fields->addField('city');
+$fields->addField('state');
+$fields->addField('postal_code');
+$fields->addField('country_code');
+$fields->addField('phone', 'Use 888-555-1234 format.');
+$fields->addField('email', 'Must be a valid email address.');
+$fields->addField('password', 'Must be between 6-20 characters.');
+
+
 $action = filter_input(INPUT_POST, 'action');
 if ($action === NULL) {
     $action = filter_input(INPUT_GET, 'action');
@@ -50,11 +64,19 @@ switch($action) {
    NULL || $email == FALSE || $password == NULL || $password == FALSE) {
        $error = "Invalid customer data. Check all fields and try again.";
        include('../errors/error.php');
-
-   } else {
-       add_customer($first_name, $last_name, $address, $city, $state, 
-       $postal_code, $country_code, $phone, $email, $password);
-       header("Location: .");
+    
+    //Validate form
+    $validate->text('first_name', $first_name);
+    $validate->text('last_name', $last_name);
+    $validate->text('address', $address);
+    $validate->text('city', $city);
+    $validate->text('state', $state);
+    $validate->text('postal_code', $postal_code);
+    $validate->text('country_code', $country_code);
+    $validate->text('phone', $phone);
+    $validate->text('email', $email);
+    $validate->text('password', $password);
+    
     }
     break;
 
