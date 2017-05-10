@@ -30,7 +30,15 @@
     <br>
 
     <label>Country_Code:</label>
-    <input type="text" name="country_code" />
+    <select name="country_code">
+        <?php foreach ($countries as $country) :?>
+	    <option value="<?php echo $country['countryCode'];?>"
+	    <?php if($country_code == $country['countryCode']) {
+	        echo "selected='selected'";
+	    }
+	    </option>
+	<?php endforeach; ?>
+    </select>
     <br>
 
     <label>Phone:</label>
