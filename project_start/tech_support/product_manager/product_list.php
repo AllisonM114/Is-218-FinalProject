@@ -1,4 +1,4 @@
-<?php include '../view/header.php'; ?>
+<?php include '../view/header.php';?>
 <main>
 
     <h1>Product List</h1>
@@ -18,8 +18,8 @@
 	        <td><?php echo $product['productCode']; ?></td>
 		<td><?php echo $product['productName']; ?></td>
 		<td><?php echo $product['version']; ?></td>
-		<td><?php echo $product['releaseDate']; ?></td>
-		<td><form action="." method="post">
+		<td><?php date = new DateTime($product['releaseDate']);
+                     echo $date->format('mm-dd-yyyy'); ?></td>		                     <td><form action="." method="post">
 		    <input type="hidden" name="action"
 		        value="delete_product">
 		    <input type="hidden" name="product_id"

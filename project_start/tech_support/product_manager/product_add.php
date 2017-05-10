@@ -19,6 +19,7 @@
 
 	<label>Release Date:</label>
 	<input type="text" name="date" />
+	<label class="message">Use any valid date format.</label>
 	<br>
 
 	<label>&nbsp;</label>
