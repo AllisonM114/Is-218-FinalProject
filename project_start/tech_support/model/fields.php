@@ -18,8 +18,8 @@ class Field {
 	$this->hasError = true;
     }
 
-    public function clearErrorMessage() 
-        $this->message = '';
+    public function clearErrorMessage() { 
+        $this->message = '' ;
 	$this->hasError = false;
     }
 
@@ -34,7 +34,7 @@ class Field {
 }
 
 class Fields {
-    private $fields = array();
+    public $fields = array();
 
     public function addField($name, $message = '') {
         $field = new Field($name, $message);

@@ -13,18 +13,17 @@
 	    <th>Password</th>
 	    <th>&nbsp;</th>
 	</tr>
-
 	<?php foreach ($technicians as $technician) : ?>
 	<tr>
 	    <td><?php echo $technician->getFullName(); ?></td>
-	    <td><?php echo $technician['email']; ?></td>
-	    <td><?php echo $technician['phone']; ?></td>
-	    <td><?php echo $technician['password']; ?></td>
+	    <td><?php echo $technician->email; ?></td>
+	    <td><?php echo $technician->phone; ?></td>
+	    <td><?php echo $technician->password; ?></td>
 	    <td><form action="." method="post">
 	        <input type="hidden" name="action"
 		    value="delete_technician">
 		<input type="hidden" name="technician_id"
-		    value="<?php echo $technician['techID']; ?>">
+		    value="<?php echo $technician->techID; ?>">
 		<input type="submit" value="Delete">
 	    </form></td>
 	</tr>

@@ -13,29 +13,28 @@ $fields->addField('city');
 $fields->addField('state');
 $fields->addField('postal_code');
 $fields->addField('country_code');
-$fields->addField('phone', 'Use 888-555-1234 format.');
-$fields->addField('email', 'Must be a valid email address.');
-$fields->addField('password', 'Must be between 6-20 characters.');
+$fields->addField('phone');
+$fields->addField('email');
+$fields->addField('password');
 
 
 $action = filter_input(INPUT_POST, 'action');
 if ($action === NULL) {
     $action = filter_input(INPUT_GET, 'action');
     if ($action === NULL) {
-        $action = 'list_customerss';
+        $action = 'list_customers';
     }
 }
 //switch statements for customer controller
 switch($action) {
 
     case 'list_customers':
-    $products = get_customers();
     include('customer_list.php');
     break;
 
-    case 'search_customer':
+    case 'search_customers':
     $last_name = filter_input(INPUT_POST, 'last_name');
-    if ($last_name == NULL || $product_id == FALSE) {
+    if ($last_name == NULL || $last_name == FALSE) {
         $error = "Missing or incorrect last name.";
 	include('../errors/error.php');
     } else {
@@ -43,8 +42,8 @@ switch($action) {
 	include('customer_list.php'); }
     break;
 
-    case 'show_add_form':
-    include('customer_update_add.php');
+    case 'display_customer_results':
+    include('add_update_customer.php');
     break;
 
     case 'add_customer':
@@ -109,5 +108,4 @@ switch($action) {
    break;
 }
 
-?
->
+?>

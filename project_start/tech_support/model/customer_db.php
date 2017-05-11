@@ -1,30 +1,30 @@
 <?php
 function get_customer() {
     global $db;
-    $query = 'SELECT * FROM customers
-              WHERE customerID = :customer_id';
+    $query = 'SELECT * FROM customers';
     $statement = $db->prepare($query);
     $statement->bindValue(":customer_id", $customer_id);
     $statement->execute();
-    $customers = $statement->fetch();
+    $customers = $statement->fetchAll();
     $statement->closeCursor();
     return $customers;
 }
 
 function search_customer($last_name) {
-    global $db
+    global $db;
     $query = 'SELECT * FROM customers
               WHERE lastName = :last_name';
     $statement = $db->prepare($query);
     $statement->bindValue(":last_name", $last_name);
     $statement->execute();
-    $customers = $statement->fetch();
+    $customers = $statement->fetchAll();
     $statement->closeCursor();
     return $customers;
+    }
 
 function update_customer($first_name, $last_name, $address, $city, $state,
 $postal_code, $country_code, $phone, $email, $password) {
-    global $db
+    global $db;
     $query = 'UPDATE customers
               SET firstName = :first_name, lastName = :last_name, address =
 	      :address, city = :city, state = :state, postalCode =
@@ -48,7 +48,7 @@ $postal_code, $country_code, $phone, $email, $password) {
 
 function add_customer($first_name, $last_name, $address, $city, $state,
 $postal_code, $country_code, $phone, $email, $password) {
-    global $db
+    global $db;
     $query = 'INSERT INTO customers
               (firstName, lastName, address, city, state, postalCode,
 	      countryCode, phone, email, password)

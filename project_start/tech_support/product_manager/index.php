@@ -9,16 +9,17 @@ if ($action === NULL) {
         $action = 'list_products';
     }
 }
+
 //switch statements for products controller
-switch($actions) {
+switch($action) {
     case 'list_products':
     $products = get_products();
     include('product_list.php');
     break;
 
     case 'delete_product':
-    $product_id = filter_input(INPUT_POST, 'product_code');
-    if ($product_id == NULL || $product_id == FALSE) {
+    $code = filter_input(INPUT_POST, 'product_code');
+    if ($code == NULL || $code == FALSE) {
         $error = "Missing or incorrect product code.";
 	include('../errors/error.php');
     } else {

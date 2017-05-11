@@ -1,36 +1,35 @@
 <?php
 function get_products() {
     global $db;
-    $query = 'SELECT * FROM products
-              WHERE productID = :product_id';
+    $query = 'SELECT * FROM tech_products';
     $statement = $db->prepare($query);
-    $statement->bindValue(":product_id", $product_id);
     $statement->execute();
-    $product = $statement->fetch();
+    $product = $statement->fetchAll();
     $statement->closeCursor();
-    return $products;
+    return $product;
 }
 
-function delete_product() {
+function delete_product($product_code) {
     global $db;
-    $query = 'DELETE FROM products-id
-              WHERE productID = :product_id';
+    $query = 'DELETE FROM tech_products
+              WHERE productCode = :product_code';
     $statement = $db->prepare($query);
-    $statement->bindValue(':productID', $product_id);
+    $statement->bindValue(':product_code', $product_code);
     $statement->execute();
     $statement->closeCursor();
 }
 
-function add_product ($code, $name, $version, $date) {
+function add_product ($product_code, $name, $version, $release_date) {
     global $db;
-    $query = 'INSERT INTO products
-                  (productCode, name, version, date)
+    $query = 'INSERT INTO tech_products
+                  (productCode, name, version, releaseDate)
 	      VALUES
-	          (:code, :name, :version, :date)';
-    $statement->bindValue(':code', $code);
+	          (:product_code, :name, :version, :release_date)';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':product_code', $product_code);
     $statement->bindValue(':name', $name);
     $statement->bindValue(':version', $version);
-    $statement->bindValue(':date', $date);
+    $statement->bindValue(':release_date', $release_date);
     $statement->execute();
     $statement->closeCursor();
 }

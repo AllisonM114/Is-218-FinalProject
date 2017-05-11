@@ -1,29 +1,30 @@
 <?php
 require('../model/database.php');
 require('../model/technician_db.php');
+require('../model/technician.php');
 
 $action = filter_input(INPUT_POST, 'action');
 if ($action === NULL) {
     $action = filter_input(INPUT_GET, 'action');
     if ($action === NULL) {
-        $action = 'list_products';
+        $action = 'list_technicians';
     }
 }
 
 //switch statements for technician controller
 switch ($action) {
     case 'list_technicians':
-    $products = get_technicians();
+    $technicians = get_technicians();
     include('technician_list.php');
     break;
 
-    case 'delete_technicians':
+    case 'delete_technician':
     $technician_id = filter_input(INPUT_POST, 'technician_id');
     if ($technician_id == NULL || $technician_id == FALSE) {
         $error = "Missing or incorrect product code.";
 	include('../errors/error.php');
     } else {
-        delete_technician($technician_id);
+        delete_technicians($technician_id);
 	header("Location: ."); }
     break;
 
@@ -45,7 +46,7 @@ switch ($action) {
     }
 
 else {
-    add_technician($first_name, $last_name, $email, $phone, $password);
+    add_technicians($first_name, $last_name, $email, $phone, $password);
     header("Location: .");
 }
     break;

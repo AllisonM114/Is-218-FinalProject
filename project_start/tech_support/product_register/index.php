@@ -36,7 +36,7 @@ switch ($action) {
     $customer = $_SESSION['user'];
     $products = get_products();
     include('product_register.php')
-    break;
+    break; 
 
     case 'register_product':
     $customer = $_SESSION['user'];

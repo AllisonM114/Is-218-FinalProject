@@ -33,7 +33,7 @@ switch ($action) {
     $description = filter_input(INPUT_POST, 'description');
     add_incident($customer, $product, $title, $description);
     $message = "This incident was added to our database."
-    include('incident_create.php');
+    include 'incident_create.php';
     break;
 
 }

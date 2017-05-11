@@ -1,12 +1,12 @@
 <?php
 class Validate {
     private $fields;
-
-    public_function __construct() {
+    
+    public function __construct() {
         $this->fields = new Fields();
     }
 
-    public_function getFields() {
+    public function getFields() {
         return $this->fields;
     }
 
@@ -132,5 +132,6 @@ class Validate {
 	part.');
 	
 	}
+}
 }
 ?>

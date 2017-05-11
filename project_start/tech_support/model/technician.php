@@ -1,11 +1,15 @@
 <?php
 
 class Technician {
-    public $firstName, $lastName;
+    public $techID, $firstName, $lastName, $email, $phone, $password;
 
-    public function __construct($firstN, $lastN) {
-        $this->firstName = $firstN;
+    public function __construct($techID, $firstN, $lastN, $email, $phone, $password) {
+        $this->techID = $techID;
+	$this->firstName = $firstN;
 	$this->lastName = $lastN;
+	$this->email = $email;
+	$this->phone = $phone;
+	$this->password = $password;
     }
 
     public function getFullName() {

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+
 <html>
 
 <!-- the head section -->
 <head>
     <title>SportsPro Technical Support</title>
     <link rel="stylesheet" type="text/css"
-          href="https://web.njit.edu/~adm52/tech_support/main.css">
+          href="https://web.njit.edu/~adm52/Is-218-FinalProject/project_start/tech_support/main.css">
 </head>
 
 <!-- the body section -->

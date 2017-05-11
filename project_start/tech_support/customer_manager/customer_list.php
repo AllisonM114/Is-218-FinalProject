@@ -1,4 +1,4 @@
-<?php include '../view/header.php'; ?>
+<?php include '../view/header.php';?>
 <main>
 
     <h1>Customer Search</h1>
@@ -10,7 +10,7 @@
 	        value="search_customers">
 	    <label>Last Name:</label>
 	    <input type="text" name="last_name" 
-	        value="?php echo htmlspecialchars($last_name);?">
+	        value="<?php echo htmlspecialchars($last_name);?>">
 	    <input type="submit" value="Search">
 	</form>
 
