@@ -68,6 +68,20 @@ $postal_code, $country_code, $phone, $email, $password) {
     $statement->bindValue(':password', $password);
     $statement->execute();
     $statement->closeCursor();
+
+function get_customer($email, $password) {
+    global $db;
+    $query = 'SELECT * FROM customers
+               WHERE email = :email AND password = :password';
+    $statement = $db->prepare($query);
+    $statement->bindValue(":email", $email);
+    $statment->bindValue(":password", $password);
+    $statement->execute();
+    $customers = $statement->fetch();
+    $statement->closeCursor();
+    return $customers;
+    }
+
 }
 
 ?>

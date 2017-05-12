@@ -5,7 +5,7 @@
     <div id="main">
         <p>You must log in before you can register a product.</p>
 	<form action="." method="post" id="customer_login_form">
-	    <input type="hidden" name="action" value="show_register">
+	    <input type="hidden" name="action" value="get_customer">
 
 	    <label>Email:</label>
 	    <input type="input" name="email" value="" />

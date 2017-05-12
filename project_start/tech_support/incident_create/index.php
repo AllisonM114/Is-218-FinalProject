@@ -15,7 +15,7 @@ if ($action === NULL) {
 switch ($action) {
 
     case 'get_customer_form':
-    include 'customer_search.php';
+    include ('get_customer.php');
     break;
 
     case 'search_customer_form':
@@ -32,8 +32,8 @@ switch ($action) {
     $title = filter_input(INPUT_POST, 'title');
     $description = filter_input(INPUT_POST, 'description');
     add_incident($customer, $product, $title, $description);
-    $message = "This incident was added to our database."
-    include 'incident_create.php';
+    $message = "This incident was added to our database.";
+    include ('incident_create.php');
     break;
 
 }

@@ -5,9 +5,9 @@
     <div id="main">
         <form action="." method="post" id="product_register_form">
 	    <input type="hidden" name="action" value="register_product">
-
 	    <label>Customer:</label>
-	    <?php echo $customer_name; ?>
+	    
+	    <?php echo $customer[0]['firstName'].' '.$customer[0]['lastName']; ?>
 	    <br>
 
 	    <label>Product:</label>
